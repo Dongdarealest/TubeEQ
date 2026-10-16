@@ -1,5 +1,8 @@
-# TubeEQ — YouTube Equalizer
+<p align="center">
+  <img src="assets/banner.png" alt="TubeEQ — Hear YouTube right." width="100%">
+</p>
 
+# TubeEQ — YouTube Equalizer
 A reliable 10-band equalizer for YouTube. Free forever, open source, no ads, no paywall, no data collected.
 
 **TubeEQ — EQ 10 band cho YouTube.** Miễn phí vĩnh viễn, mã nguồn mở, không quảng cáo, không thu thập dữ liệu.
