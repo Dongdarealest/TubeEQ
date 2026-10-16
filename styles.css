@@ -53,7 +53,12 @@ header { display: flex; justify-content: space-between; align-items: center; mar
   background: #191b21; border: 1px solid #2c2f3a; border-radius: 10px;
   max-height: 264px; overflow-y: auto; padding: 4px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, .55);
+  scrollbar-width: thin; scrollbar-color: #343845 transparent;
 }
+.pselect-menu::-webkit-scrollbar { width: 8px; }
+.pselect-menu::-webkit-scrollbar-track { background: transparent; }
+.pselect-menu::-webkit-scrollbar-thumb { background: #343845; border-radius: 4px; }
+.pselect-menu::-webkit-scrollbar-thumb:hover { background: #ff3b5c; }
 .pgroup {
   font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
   color: #6f7488; padding: 8px 10px 4px;
