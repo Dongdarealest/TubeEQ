@@ -41,10 +41,7 @@
 
   <div class="trow">
     <label class="switch"><input type="checkbox" id="smart"><span data-i18n="smart">EQ thông minh theo loại video</span></label>
-  </div>
-
-  <div class="trow">
-    <label class="switch"><input type="checkbox" id="nonstop"><span data-i18n="nonstop">Nonstop</span></label>
+    <label class="switch" id="nonstopLabel"><input type="checkbox" id="nonstop"><span data-i18n="nonstop">Nonstop</span></label>
   </div>
 
   <div class="crow">
@@ -62,12 +59,12 @@
   </div>
 
   <div class="vizrow">
-    <canvas id="viz" width="380" height="52"></canvas>
+    <canvas id="viz" width="380" height="40"></canvas>
     <span id="clip" class="clip" title="clip"></span>
   </div>
 
   <p id="hint" class="hint hidden"></p>
-  <footer><span id="ver">v1.0.0</span> · open source · no data collected</footer>
+  <footer><span id="ver">v1.0.0</span><span>· open source · no data collected</span><button id="donate" class="donate hidden">☕ <span data-i18n="donate">Donate</span></button></footer>
 </div>
 <script src="shared.js"></script>
 <script src="popup.js"></script>

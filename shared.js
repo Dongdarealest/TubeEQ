@@ -91,7 +91,7 @@ TQ.I18N = {
 vi: {
   preset: 'Preset', custom: 'Tùy chỉnh', volume: 'Âm lượng',
   smart: 'EQ thông minh theo loại video', remember: 'Nhớ cho kênh này', forget: 'Bỏ nhớ kênh này',
-  nonstop: 'Nonstop — tự bấm "Tiếp tục xem" khi YouTube hỏi',
+  nonstop: 'Nonstop', nonstopDesc: 'Tự bấm "Tiếp tục xem" khi YouTube hỏi vì không thao tác', donate: 'Ủng hộ',
   share: 'Chia sẻ', importBtn: 'Nhập mã', importPh: 'Dán mã preset…', apply: 'Áp dụng', copied: 'Đã copy mã preset!',
   saveTip: 'Lưu cấu hình hiện tại thành preset', saveNamePh: 'Tên preset…', saveBtn: 'Lưu',
   myPresets: 'Của tôi', deleteBtn: 'Xóa', presetSaved: 'Đã lưu preset!',
@@ -130,7 +130,7 @@ vi: {
 en: {
   preset: 'Preset', custom: 'Custom', volume: 'Volume',
   smart: 'Smart EQ by video type', remember: 'Remember for this channel', forget: 'Forget this channel',
-  nonstop: 'Nonstop — auto-click "Continue watching" for you',
+  nonstop: 'Nonstop', nonstopDesc: 'Auto-click "Continue watching" when YouTube asks due to inactivity', donate: 'Donate',
   share: 'Share', importBtn: 'Import', importPh: 'Paste preset code…', apply: 'Apply', copied: 'Preset code copied!',
   saveTip: 'Save current settings as a preset', saveNamePh: 'Preset name…', saveBtn: 'Save',
   myPresets: 'My presets', deleteBtn: 'Delete', presetSaved: 'Preset saved!',

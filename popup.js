@@ -9,15 +9,18 @@ let vizPort = null;
 const t = k => TQ.t(state.lang, k);
 const fmtDb = db => (db > 0 ? '+' : '') + Number(db).toFixed(1);
 
-/* ---------- build sliders ---------- */
+/* Donate: dien link Ko-fi / PayPal.Me khi mo lai trang tip; de trong = an nut */
+const DONATE_URL = '';
+
+/* ---------- build vertical band sliders ---------- */
 const bandsEl = $('#bands');
 TQ.BANDS.forEach((b, i) => {
   const d = document.createElement('div');
   d.className = 'band';
   d.innerHTML =
-    '<div class="band-head"><span class="blabel" id="bl' + i + '"></span>' +
-    '<span class="val" id="bv' + i + '">+0.0</span></div>' +
-    '<input type="range" id="bs' + i + '" min="-12" max="12" step="0.5" value="0" title="">';
+    '<span class="bval" id="bv' + i + '">+0.0</span>' +
+    '<input type="range" id="bs' + i + '" min="-12" max="12" step="0.5" value="0" title="">' +
+    '<span class="blabel" id="bl' + i + '"></span>';
   bandsEl.appendChild(d);
   d.querySelector('input').addEventListener('input', e => {
     state.gains[i] = parseFloat(e.target.value);
@@ -31,9 +34,9 @@ TQ.BANDS.forEach((b, i) => {
 const fxEl = $('#fx');
 TQ.FX.forEach(fx => {
   const d = document.createElement('div');
-  d.className = 'band';
+  d.className = 'fx';
   d.innerHTML =
-    '<div class="band-head"><span class="blabel" id="fxl_' + fx.id + '"></span>' +
+    '<div class="fx-head"><span class="fxlabel" id="fxl_' + fx.id + '"></span>' +
     '<span class="val" id="fxv_' + fx.id + '"></span></div>' +
     '<input type="range" id="fxs_' + fx.id + '" min="0" max="10" step="1" value="' + fx.def + '" title="">';
   fxEl.appendChild(d);
@@ -90,13 +93,14 @@ function applyUserPreset(name) {
 /* ---------- i18n static ---------- */
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  $('#nonstopLabel').title = t('nonstopDesc');
   $('#importCode').placeholder = t('importPh');
   $('#savePreset').title = t('saveTip');
   $('#saveName').placeholder = t('saveNamePh');
   $('#hint').textContent = t('hint');
   $('#lang').textContent = state.lang.toUpperCase();
   TQ.BANDS.forEach((b, i) => {
-    $('#bl' + i).innerHTML = b.label + ' Hz <span class="btag">· ' + t('bandTags')[i] + '</span>';
+    $('#bl' + i).textContent = b.label;
   });
   buildPresetOptions();
 }
@@ -107,7 +111,7 @@ function render(full = true) {
   TQ.BANDS.forEach((_, i) => {
     $('#bs' + i).value = state.gains[i];
     $('#bv' + i).textContent = fmtDb(state.gains[i]);
-    const tip = t('bandDesc')[i] || '';
+    const tip = t('bandTags')[i] + ' — ' + (t('bandDesc')[i] || '');
     $('#bl' + i).title = tip;
     $('#bs' + i).title = tip;
   });
@@ -325,4 +329,9 @@ async function startViz() {
   await pull();
   startViz();
   setInterval(pull, 2500); // dong bo khi chuyen video (auto preset)
+  if (DONATE_URL) {
+    const dn = $('#donate');
+    dn.classList.remove('hidden');
+    dn.addEventListener('click', () => { try { chrome.tabs.create({ url: DONATE_URL }); } catch (e) {} });
+  }
 })();
