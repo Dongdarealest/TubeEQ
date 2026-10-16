@@ -97,7 +97,7 @@ TQ.I18N = {
 vi: {
   preset: 'Preset', custom: 'Tùy chỉnh', volume: 'Âm lượng',
   smart: 'EQ thông minh theo loại video', remember: 'Nhớ cho kênh này', forget: 'Bỏ nhớ kênh này',
-  nonstop: 'Nonstop', nonstopDesc: 'Tự bấm "Tiếp tục xem" khi YouTube hỏi vì không thao tác', donate: 'Ủng hộ',
+  nonstop: 'Không ngừng', nonstopDesc: 'Tự bấm "Tiếp tục xem" khi YouTube hỏi vì không thao tác', donate: 'Ủng hộ',
   share: 'Chia sẻ', importBtn: 'Nhập mã', importPh: 'Dán mã preset…', apply: 'Áp dụng', copied: 'Đã copy mã preset!',
   saveTip: 'Lưu cấu hình hiện tại thành preset', saveNamePh: 'Tên preset…', saveBtn: 'Lưu',
   myPresets: 'Của tôi', deleteBtn: 'Xóa', presetSaved: 'Đã lưu preset!',
@@ -175,7 +175,7 @@ en: {
 es: {
   preset: 'Preset', custom: 'Personalizado', volume: 'Volumen',
   smart: 'EQ inteligente por tipo de video', remember: 'Recordar para este canal', forget: 'Olvidar este canal',
-  nonstop: 'Nonstop', nonstopDesc: 'Pulsa “Seguir viendo” automáticamente cuando YouTube lo pida por inactividad', donate: 'Donar',
+  nonstop: 'Sin pausas', nonstopDesc: 'Pulsa “Seguir viendo” automáticamente cuando YouTube lo pida por inactividad', donate: 'Donar',
   share: 'Compartir', importBtn: 'Importar', importPh: 'Pega el código…', apply: 'Aplicar', copied: '¡Código copiado!',
   saveTip: 'Guardar ajustes como preset', saveNamePh: 'Nombre del preset…', saveBtn: 'Guardar',
   myPresets: 'Mis presets', deleteBtn: 'Eliminar', presetSaved: '¡Preset guardado!',
@@ -214,7 +214,7 @@ es: {
 pt: {
   preset: 'Preset', custom: 'Personalizado', volume: 'Volume',
   smart: 'EQ inteligente por tipo de vídeo', remember: 'Lembrar para este canal', forget: 'Esquecer este canal',
-  nonstop: 'Nonstop', nonstopDesc: 'Clica “Continuar assistindo” automaticamente quando o YouTube pedir por inatividade', donate: 'Doar',
+  nonstop: 'Sem pausas', nonstopDesc: 'Clica “Continuar assistindo” automaticamente quando o YouTube pedir por inatividade', donate: 'Doar',
   share: 'Compartilhar', importBtn: 'Importar', importPh: 'Cole o código…', apply: 'Aplicar', copied: 'Código copiado!',
   saveTip: 'Salvar ajustes como preset', saveNamePh: 'Nome do preset…', saveBtn: 'Salvar',
   myPresets: 'Meus presets', deleteBtn: 'Excluir', presetSaved: 'Preset salvo!',
@@ -253,7 +253,7 @@ pt: {
 fr: {
   preset: 'Preset', custom: 'Personnalisé', volume: 'Volume',
   smart: 'Égaliseur intelligent selon la vidéo', remember: 'Mémoriser pour cette chaîne', forget: 'Oublier cette chaîne',
-  nonstop: 'Nonstop', nonstopDesc: 'Clique sur “Continuer à regarder” quand YouTube le demande après inactivité', donate: 'Faire un don',
+  nonstop: 'Sans pause', nonstopDesc: 'Clique sur “Continuer à regarder” quand YouTube le demande après inactivité', donate: 'Faire un don',
   share: 'Partager', importBtn: 'Importer', importPh: 'Coller le code…', apply: 'Appliquer', copied: 'Code copié !',
   saveTip: 'Enregistrer comme preset', saveNamePh: 'Nom du preset…', saveBtn: 'Enregistrer',
   myPresets: 'Mes presets', deleteBtn: 'Supprimer', presetSaved: 'Preset enregistré !',
@@ -292,7 +292,7 @@ fr: {
 de: {
   preset: 'Preset', custom: 'Benutzerdefiniert', volume: 'Lautstärke',
   smart: 'Intelligenter EQ nach Videotyp', remember: 'Für diesen Kanal merken', forget: 'Diesen Kanal vergessen',
-  nonstop: 'Nonstop', nonstopDesc: 'Klickt automatisch auf „Weiter ansehen“, wenn YouTube nach Inaktivität fragt', donate: 'Spenden',
+  nonstop: 'Ohne Pause', nonstopDesc: 'Klickt automatisch auf „Weiter ansehen“, wenn YouTube nach Inaktivität fragt', donate: 'Spenden',
   share: 'Teilen', importBtn: 'Importieren', importPh: 'Preset-Code einfügen…', apply: 'Anwenden', copied: 'Preset-Code kopiert!',
   saveTip: 'Einstellungen als Preset speichern', saveNamePh: 'Preset-Name…', saveBtn: 'Speichern',
   myPresets: 'Meine Presets', deleteBtn: 'Löschen', presetSaved: 'Preset gespeichert!',
@@ -331,7 +331,7 @@ de: {
 it: {
   preset: 'Preset', custom: 'Personalizzato', volume: 'Volume',
   smart: 'EQ intelligente per tipo di video', remember: 'Ricorda per questo canale', forget: 'Dimentica questo canale',
-  nonstop: 'Nonstop', nonstopDesc: 'Clicca “Continua a guardare” quando YouTube lo chiede per inattività', donate: 'Dona',
+  nonstop: 'Senza pause', nonstopDesc: 'Clicca “Continua a guardare” quando YouTube lo chiede per inattività', donate: 'Dona',
   share: 'Condividi', importBtn: 'Importa', importPh: 'Incolla il codice…', apply: 'Applica', copied: 'Codice copiato!',
   saveTip: 'Salva come preset', saveNamePh: 'Nome preset…', saveBtn: 'Salva',
   myPresets: 'I miei preset', deleteBtn: 'Elimina', presetSaved: 'Preset salvato!',
@@ -370,7 +370,7 @@ it: {
 ru: {
   preset: 'Пресет', custom: 'Свой', volume: 'Громкость',
   smart: 'Умный эквалайзер по типу видео', remember: 'Запомнить для этого канала', forget: 'Забыть этот канал',
-  nonstop: 'Nonstop', nonstopDesc: 'Автоматически нажимает «Продолжить просмотр», когда YouTube спрашивает из-за неактивности', donate: 'Поддержать',
+  nonstop: 'Без пауз', nonstopDesc: 'Автоматически нажимает «Продолжить просмотр», когда YouTube спрашивает из-за неактивности', donate: 'Поддержать',
   share: 'Поделиться', importBtn: 'Импорт', importPh: 'Вставьте код…', apply: 'Применить', copied: 'Код скопирован!',
   saveTip: 'Сохранить настройки как пресет', saveNamePh: 'Название пресета…', saveBtn: 'Сохранить',
   myPresets: 'Мои пресеты', deleteBtn: 'Удалить', presetSaved: 'Пресет сохранён!',
@@ -409,7 +409,7 @@ ru: {
 ja: {
   preset: 'プリセット', custom: 'カスタム', volume: '音量',
   smart: '動画タイプ別のスマートEQ', remember: 'このチャンネルに記憶', forget: 'このチャンネルを忘れる',
-  nonstop: 'Nonstop', nonstopDesc: '操作がなくYouTubeに確認されたら「続けて視聴」を自動クリック', donate: '寄付する',
+  nonstop: 'ノンストップ', nonstopDesc: '操作がなくYouTubeに確認されたら「続けて視聴」を自動クリック', donate: '寄付する',
   share: '共有', importBtn: 'インポート', importPh: 'コードを貼り付け…', apply: '適用', copied: 'コードをコピーしました！',
   saveTip: '現在の設定をプリセットとして保存', saveNamePh: 'プリセット名…', saveBtn: '保存',
   myPresets: 'マイプリセット', deleteBtn: '削除', presetSaved: 'プリセットを保存しました！',
@@ -448,7 +448,7 @@ ja: {
 ko: {
   preset: '프리셋', custom: '사용자 설정', volume: '음량',
   smart: '영상 유형별 스마트 EQ', remember: '이 채널에 기억', forget: '이 채널 잊기',
-  nonstop: 'Nonstop', nonstopDesc: '활동이 없어 YouTube에서 확인하면 “계속 시청”을 자동 클릭', donate: '후원하기',
+  nonstop: '논스톱', nonstopDesc: '활동이 없어 YouTube에서 확인하면 “계속 시청”을 자동 클릭', donate: '후원하기',
   share: '공유', importBtn: '가져오기', importPh: '프리셋 코드 붙여넣기…', apply: '적용', copied: '코드가 복사되었습니다!',
   saveTip: '현재 설정을 프리셋으로 저장', saveNamePh: '프리셋 이름…', saveBtn: '저장',
   myPresets: '내 프리셋', deleteBtn: '삭제', presetSaved: '프리셋이 저장되었습니다!',
@@ -487,7 +487,7 @@ ko: {
 zh: {
   preset: '预设', custom: '自定义', volume: '音量',
   smart: '按视频类型智能均衡', remember: '记住此频道', forget: '忘记此频道',
-  nonstop: 'Nonstop', nonstopDesc: '无操作时 YouTube 询问，自动点击“继续观看”', donate: '打赏',
+  nonstop: '不间断', nonstopDesc: '无操作时 YouTube 询问，自动点击“继续观看”', donate: '打赏',
   share: '分享', importBtn: '导入', importPh: '粘贴预设代码…', apply: '应用', copied: '代码已复制！',
   saveTip: '将当前设置保存为预设', saveNamePh: '预设名称…', saveBtn: '保存',
   myPresets: '我的预设', deleteBtn: '删除', presetSaved: '预设已保存！',
@@ -526,7 +526,7 @@ zh: {
 id: {
   preset: 'Preset', custom: 'Kustom', volume: 'Volume',
   smart: 'EQ pintar sesuai jenis video', remember: 'Ingat untuk kanal ini', forget: 'Lupakan kanal ini',
-  nonstop: 'Nonstop', nonstopDesc: 'Otomatis klik “Lanjutkan menonton” saat YouTube bertanya karena tidak ada aktivitas', donate: 'Donasi',
+  nonstop: 'Tanpa jeda', nonstopDesc: 'Otomatis klik “Lanjutkan menonton” saat YouTube bertanya karena tidak ada aktivitas', donate: 'Donasi',
   share: 'Bagikan', importBtn: 'Impor', importPh: 'Tempel kode preset…', apply: 'Terapkan', copied: 'Kode tersalin!',
   saveTip: 'Simpan pengaturan sebagai preset', saveNamePh: 'Nama preset…', saveBtn: 'Simpan',
   myPresets: 'Preset saya', deleteBtn: 'Hapus', presetSaved: 'Preset tersimpan!',

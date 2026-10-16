@@ -121,7 +121,7 @@ function applyUserPreset(name) {
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   $('#nonstopLabel').title = t('nonstopDesc');
-  $('#lang').value = state.lang;
+  syncLangMenu();
   $('#importCode').placeholder = t('importPh');
   $('#savePreset').title = t('saveTip');
   $('#saveName').placeholder = t('saveNamePh');
@@ -241,10 +241,11 @@ async function pull() {
 /* ---------- events ---------- */
 $('#presetBtn').addEventListener('click', e => {
   e.stopPropagation();
+  closeLangMenu();
   $('#presetMenu').classList.toggle('hidden');
 });
-document.addEventListener('click', () => closePresetMenu());
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePresetMenu(); });
+document.addEventListener('click', () => { closePresetMenu(); closeLangMenu(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePresetMenu(); closeLangMenu(); } });
 $('#power').addEventListener('click', () => { state.enabled = !state.enabled; render(false); push(); });
 $('#ab').addEventListener('click', () => { state.ab = !state.ab; render(false); push(); });
 $('#reset').addEventListener('click', () => {
@@ -259,16 +260,33 @@ $('#vol').addEventListener('input', e => {
 });
 $('#smart').addEventListener('change', e => { state.smart = e.target.checked; push(); });
 $('#nonstop').addEventListener('change', e => { state.nonstop = e.target.checked; push(); });
-/* ---------- language selector ---------- */
+/* ---------- language selector (custom dropdown) ---------- */
 TQ.LANGS.forEach(([code, name]) => {
-  const o = document.createElement('option');
-  o.value = code; o.textContent = name;
-  $('#lang').appendChild(o);
+  const d = document.createElement('div');
+  d.className = 'pitem'; d.dataset.k = code;
+  const dot = document.createElement('span'); dot.className = 'dot';
+  const lb = document.createElement('span'); lb.textContent = name;
+  d.appendChild(dot); d.appendChild(lb);
+  d.addEventListener('click', e => {
+    e.stopPropagation();
+    $('#langMenu').classList.add('hidden');
+    if (state.lang !== code) { state.lang = code; render(true); push(); }
+  });
+  $('#langMenu').appendChild(d);
 });
-$('#lang').addEventListener('change', e => {
-  state.lang = e.target.value;
-  render(true); push();
+function syncLangMenu() {
+  const cur = TQ.LANGS.find(([c]) => c === state.lang);
+  $('#langLabel').textContent = cur ? cur[1] : state.lang;
+  document.querySelectorAll('#langMenu .pitem').forEach(el => {
+    el.classList.toggle('sel', el.dataset.k === state.lang);
+  });
+}
+$('#langBtn').addEventListener('click', e => {
+  e.stopPropagation();
+  closePresetMenu();
+  $('#langMenu').classList.toggle('hidden');
 });
+function closeLangMenu() { $('#langMenu').classList.add('hidden'); }
 $('#remember').addEventListener('click', async () => {
   try {
     const tab = await activeTab();

@@ -9,7 +9,10 @@
   <header>
     <div class="logo"><img src="icons/icon48.png" alt="">TubeEQ</div>
     <div class="hbtns">
-      <select id="lang" class="langsel" title="Language"></select>
+      <div class="pselect langwrap" id="langwrap">
+        <button id="langBtn" class="pselect-btn langbtn" type="button"><span id="langLabel"></span><span class="chev">▾</span></button>
+        <div id="langMenu" class="pselect-menu langmenu hidden"></div>
+      </div>
       <button id="power" class="power on" title="On/Off">⏻</button>
     </div>
   </header>

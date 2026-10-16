@@ -11,11 +11,9 @@ header { display: flex; justify-content: space-between; align-items: center; mar
 .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; letter-spacing: .5px; }
 .logo img { width: 24px; height: 24px; border-radius: 6px; }
 .hbtns { display: flex; gap: 8px; align-items: center; }
-.langsel {
-  background: #1d1f26; color: #cfd3de; border: 1px solid #2c2f3a;
-  border-radius: 8px; padding: 6px 6px; cursor: pointer; font-size: 12px; max-width: 112px;
-}
-.langsel:hover { color: #fff; border-color: #3d4252; }
+.langwrap { flex: none; }
+.langbtn { padding: 5px 8px; font-size: 11px; }
+.langmenu { left: auto; right: 0; min-width: 158px; }
 .chip {
   background: #1d1f26; color: #cfd3de; border: 1px solid #2c2f3a;
   border-radius: 8px; padding: 6px 10px; cursor: pointer; font-size: 12px;
