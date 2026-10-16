@@ -125,6 +125,7 @@ function render(full = true) {
   $('#vol').value = state.volume;
   $('#volval').textContent = state.volume + '%';
   $('#smart').checked = state.smart;
+  $('#nonstop').checked = !!state.nonstop;
   const p = $('#power');
   p.classList.toggle('on', state.enabled);
   document.body.classList.toggle('disabled', !state.enabled);
@@ -222,6 +223,7 @@ $('#vol').addEventListener('input', e => {
   push();
 });
 $('#smart').addEventListener('change', e => { state.smart = e.target.checked; push(); });
+$('#nonstop').addEventListener('change', e => { state.nonstop = e.target.checked; push(); });
 $('#lang').addEventListener('click', () => {
   state.lang = state.lang === 'vi' ? 'en' : 'vi';
   render(true); push();

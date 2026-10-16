@@ -479,6 +479,33 @@ function tqBuildUI() {
   tqWatchAutohide();
 }
 
+/* ---------- nonstop: auto-confirm "Continue watching?" ---------- */
+let tqLastDismiss = 0;
+function tqClickYes(dlg) {
+  // nut Yes nam trong shadow DOM cua Polymer element -> thu ca shadowRoot lan light DOM
+  const roots = [dlg.shadowRoot, dlg].filter(Boolean);
+  for (const root of roots) {
+    const cb = root.querySelector('#confirm-button');
+    if (!cb) continue;
+    const inner = (cb.shadowRoot || cb).querySelector('button');
+    for (const el of [inner, cb].filter(Boolean)) {
+      try { el.click(); return true; } catch (e) {}
+    }
+  }
+  return false;
+}
+function tqDismissContinueWatching() {
+  if (!state || !state.nonstop) return;
+  if (Date.now() - tqLastDismiss < 3000) return; // chong bam lap
+  try {
+    const dlg = document.querySelector('yt-confirm-dialog-renderer');
+    if (!dlg) return;
+    // chi bam khi dung la dialog hoi nghi xem tiep, khong dung vao dialog xac nhan khac
+    if (!/continue watching|tiếp tục xem/i.test(dlg.textContent || '')) return;
+    if (tqClickYes(dlg)) tqLastDismiss = Date.now();
+  } catch (e) {}
+}
+
 /* ---------- boot + SPA navigation ---------- */
 state = loadState();
 try {
@@ -494,6 +521,12 @@ try {
 
 hookVideo(false);
 tqBuildUI();
+// nonstop: canh dialog ngay khi DOM thay doi + quet du phong moi 2s
+try {
+  new MutationObserver(() => tqDismissContinueWatching())
+    .observe(document.documentElement, { childList: true, subtree: true });
+} catch (e) {}
+setInterval(tqDismissContinueWatching, 2000);
 document.addEventListener('yt-navigate-finish', () => setTimeout(() => { rt._hooked = false; hookVideo(true); tqBuildUI(); }, 700));
 setInterval(() => {
   if (location.href !== lastHref) {

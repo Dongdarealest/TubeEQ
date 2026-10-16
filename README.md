@@ -15,6 +15,7 @@ A reliable 10-band equalizer for YouTube. Free forever, open source, no ads, no 
 - **Volume boost** up to 200% + **volume leveling** across videos (no more loudness jumps)
 - **Clip indicator** + **A/B compare** button
 - **Preset sharing**: copy a short code, friends paste it to get your exact EQ
+- **Nonstop**: auto-clicks "Continue watching?" so YouTube never pauses your music for being idle
 - **Visualizer**: live proof the EQ is actually processing your audio
 - English / Tiếng Việt interface
 - Minimal permissions: only `youtube.com`. No `tabCapture`, no all-sites access.
