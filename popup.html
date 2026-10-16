@@ -17,7 +17,10 @@
   <div class="status"><span id="sdot" class="sdot ok"></span><span id="stext"></span></div>
 
   <div class="prow">
-    <select id="preset"></select>
+    <div class="pselect" id="pselect">
+      <button id="presetBtn" class="pselect-btn" type="button"><span id="presetLabel"></span><span class="chev">▾</span></button>
+      <div id="presetMenu" class="pselect-menu hidden"></div>
+    </div>
     <button id="ab" class="chip" data-i18n="ab" title="A/B">A/B</button>
     <button id="reset" class="chip" data-i18n="reset">Đặt lại</button>
     <button id="savePreset" class="chip" title="💾">💾</button>

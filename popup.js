@@ -47,35 +47,62 @@ TQ.FX.forEach(fx => {
   });
 });
 
-/* ---------- preset select ---------- */
-function buildPresetOptions() {
-  const sel = $('#preset');
-  sel.innerHTML = '';
+/* ---------- preset menu (custom dropdown, theo theme) ---------- */
+function presetItems() {
+  const items = [];
   TQ.PRESET_GROUPS.forEach(gr => {
-    const og = document.createElement('optgroup');
-    og.label = t('groups')[gr.id];
-    gr.keys.forEach(k => {
-      const o = document.createElement('option');
-      o.value = k; o.textContent = t('names')[k];
-      og.appendChild(o);
-    });
-    sel.appendChild(og);
+    items.push({ group: t('groups')[gr.id] });
+    gr.keys.forEach(k => items.push({ k, label: t('names')[k] }));
   });
-  const o = document.createElement('option');
-  o.value = 'custom'; o.textContent = t('custom');
-  sel.appendChild(o);
+  items.push({ k: 'custom', label: t('custom') });
   const mine = Object.keys(state.customPresets || {});
   if (mine.length) {
-    const og = document.createElement('optgroup');
-    og.label = t('myPresets');
-    mine.sort().forEach(name => {
-      const u = document.createElement('option');
-      u.value = 'user:' + name; u.textContent = name;
-      og.appendChild(u);
-    });
-    sel.appendChild(og);
+    items.push({ group: t('myPresets') });
+    mine.sort().forEach(name => items.push({ k: 'user:' + name, label: name }));
   }
+  return items;
 }
+function buildPresetOptions() {
+  const menu = $('#presetMenu');
+  menu.innerHTML = '';
+  presetItems().forEach(it => {
+    const d = document.createElement('div');
+    if (it.group) { d.className = 'pgroup'; d.textContent = it.group; }
+    else {
+      d.className = 'pitem'; d.dataset.k = it.k;
+      const dot = document.createElement('span'); dot.className = 'dot';
+      const lb = document.createElement('span'); lb.textContent = it.label;
+      d.appendChild(dot); d.appendChild(lb);
+      d.addEventListener('click', e => { e.stopPropagation(); choosePreset(it.k); });
+    }
+    menu.appendChild(d);
+  });
+  syncPresetMenu();
+}
+function currentPresetKey() {
+  const upn = userPresetName();
+  return TQ.PRESETS[state.preset] ? state.preset
+    : (upn && state.customPresets[upn] ? state.preset : 'custom');
+}
+function presetLabelFor(k) {
+  if (k === 'custom') return t('custom');
+  if (k.indexOf('user:') === 0) return k.slice(5);
+  return (t('names') && t('names')[k]) || k;
+}
+function syncPresetMenu() {
+  const k = currentPresetKey();
+  $('#presetLabel').textContent = presetLabelFor(k);
+  document.querySelectorAll('#presetMenu .pitem').forEach(el => {
+    el.classList.toggle('sel', el.dataset.k === k);
+  });
+}
+function choosePreset(k) {
+  closePresetMenu();
+  if (k === 'custom') return;
+  if (k.indexOf('user:') === 0) { if (applyUserPreset(k.slice(5))) { render(false); push(); } }
+  else if (TQ.PRESETS[k]) { state.gains = [...TQ.PRESETS[k].g]; state.preset = k; render(false); push(); }
+}
+function closePresetMenu() { $('#presetMenu').classList.add('hidden'); }
 
 /* user preset helpers */
 function userPresetName() {
@@ -123,9 +150,7 @@ function render(full = true) {
     $('#fxl_' + fx.id).title = tip;
     $('#fxs_' + fx.id).title = tip;
   });
-  const upn = userPresetName();
-  $('#preset').value = TQ.PRESETS[state.preset] ? state.preset
-    : (upn && state.customPresets[upn] ? state.preset : 'custom');
+  syncPresetMenu();
   $('#vol').value = state.volume;
   $('#volval').textContent = state.volume + '%';
   $('#smart').checked = state.smart;
@@ -214,11 +239,12 @@ async function pull() {
 }
 
 /* ---------- events ---------- */
-$('#preset').addEventListener('change', e => {
-  const k = e.target.value;
-  if (k.indexOf('user:') === 0) { if (applyUserPreset(k.slice(5))) { render(false); push(); } }
-  else if (TQ.PRESETS[k]) { state.gains = [...TQ.PRESETS[k].g]; state.preset = k; render(false); push(); }
+$('#presetBtn').addEventListener('click', e => {
+  e.stopPropagation();
+  $('#presetMenu').classList.toggle('hidden');
 });
+document.addEventListener('click', () => closePresetMenu());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePresetMenu(); });
 $('#power').addEventListener('click', () => { state.enabled = !state.enabled; render(false); push(); });
 $('#ab').addEventListener('click', () => { state.ab = !state.ab; render(false); push(); });
 $('#reset').addEventListener('click', () => {
