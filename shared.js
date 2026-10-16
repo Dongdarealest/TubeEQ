@@ -102,13 +102,13 @@ vi: {
   viaChannel: 'theo kênh', viaSmart: 'tự động', viaManual: 'tay chỉnh',
   bandTags: ['siêu trầm','trầm sâu','trầm ấm','độ ấm','trung trầm','giọng nói','độ rõ','chi tiết','độ sáng','không khí'],
   fxTitle: 'Hiệu ứng',
-  fxNames: { clarity: 'Clarity', ambience: 'Ambience', surround: 'Surround', dynBoost: 'Dynamic Boost', restore: 'Lossless Restore' },
+  fxNames: { clarity: 'Trong', ambience: 'Vang', surround: 'Rộng', dynBoost: 'Căng', restore: 'Giả lập Lossless' },
   fxDesc: {
     clarity: 'Kích thích harmonic dải cao — tiếng trong, chi tiết hơn mà không chói.',
     ambience: 'Reverb nhẹ — cảm giác không gian như nghe trong phòng.',
     surround: 'Mở rộng stereo — âm trường rộng hơn.',
     dynBoost: 'Nén thông minh — tiếng căng, to đều mà không vỡ.',
-    restore: 'Phục hồi transient bị codec lossy làm mờ — tiếng trống, guitar gảy sắc lại như bản gốc.',
+    restore: 'Giả lập chất lossless: phục hồi transient bị codec lossy làm mờ — tiếng trống, guitar gảy sắc lại như bản gốc.',
   },
   bandDesc: [
     'Siêu trầm — độ rung, lực nện của bass. Tăng nhiều dễ rè loa nhỏ.',
@@ -141,13 +141,13 @@ en: {
   viaChannel: 'per channel', viaSmart: 'auto', viaManual: 'manual',
   bandTags: ['sub-bass','deep bass','warm bass','warmth','low mids','vocals','presence','detail','brightness','air'],
   fxTitle: 'Effects',
-  fxNames: { clarity: 'Clarity', ambience: 'Ambience', surround: 'Surround', dynBoost: 'Dynamic Boost', restore: 'Lossless Restore' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'High-frequency harmonic exciter — clearer, more detailed, never harsh.',
     ambience: 'Gentle reverb — a sense of room space.',
     surround: 'Stereo widener — a wider soundstage.',
     dynBoost: 'Smart compression — loud and punchy without clipping.',
-    restore: 'Restores transients smeared by lossy codecs — drums and plucks snap like the original.',
+    restore: 'Simulated lossless: restores transients smeared by lossy codecs — drums and plucks snap like the original.',
   },
   bandDesc: [
     'Sub-bass — rumble and physical punch. Too much distorts small speakers.',

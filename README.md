@@ -8,8 +8,7 @@ A reliable 10-band equalizer for YouTube. Free forever, open source, no ads, no 
 
 - **10-band EQ** (31 Hz – 16 kHz) with genre presets: Rock, Pop, Jazz, Classical, Electronic, Lofi + community presets (V-Pop, EDM…). Hover any band for a plain-language explanation.
 - **In-player floating button**: a red TubeEQ button floats on the video player (top-right) — one click opens a mini panel to switch presets or toggle power without leaving the video. Full controls stay in the toolbar popup.
-- **FxSound-style effects**: Clarity (harmonic exciter), Ambience (room reverb), Surround (stereo widener), Dynamic Boost (smart compression), **Lossless Restore** (transient restorer — brings back the snap that lossy codecs smear)
-- **Smart EQ**: auto-suggests a preset based on video type (music, podcast, gaming…)
+- **5 signature sound effects, TubeEQ's own recipe**: **Trong** (harmonic exciter — clearer highs), **Vang** (gentle room reverb), **Rộng** (stereo widener), **Căng** (smart compression — loud and punchy), **Giả lập Lossless** (transient restorer — simulates the snap that lossy codecs smear)
 - **Smart EQ**: auto-suggests a preset based on video type (music, podcast, gaming…)
 - **Per-channel memory**: remembers your preset for each YouTube channel
 - **Volume boost** up to 200% + **volume leveling** across videos (no more loudness jumps)
