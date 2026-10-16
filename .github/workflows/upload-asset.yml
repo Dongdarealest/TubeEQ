@@ -1,0 +1,22 @@
+name: Upload release asset
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag'
+        required: true
+        default: 'v1.0.1'
+      file:
+        description: 'File path in repo'
+        required: true
+        default: 'dist/tubeeq-v1.0.1.zip'
+permissions:
+  contents: write
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh release upload "${{ inputs.tag }}" "${{ inputs.file }}" --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
