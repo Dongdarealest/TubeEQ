@@ -108,7 +108,7 @@ vi: {
   viaChannel: 'theo kênh', viaSmart: 'tự động', viaManual: 'tay chỉnh',
   bandTags: ['siêu trầm','trầm sâu','trầm ấm','độ ấm','trung trầm','giọng nói','độ rõ','chi tiết','độ sáng','không khí'],
   fxTitle: 'Hiệu ứng',
-  fxNames: { clarity: 'Trong', ambience: 'Vang', surround: 'Rộng', dynBoost: 'Căng', restore: 'Giả lập Lossless' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Kích thích harmonic dải cao — tiếng trong, chi tiết hơn mà không chói.',
     ambience: 'Reverb nhẹ — cảm giác không gian như nghe trong phòng.',
@@ -186,7 +186,7 @@ es: {
   viaChannel: 'por canal', viaSmart: 'auto', viaManual: 'manual',
   bandTags: ['subgraves','graves profundos','graves cálidos','calidez','medios bajos','voces','presencia','detalle','brillo','aire'],
   fxTitle: 'Efectos',
-  fxNames: { clarity: 'Cristal', ambience: 'Espacio', surround: 'Amplio', dynBoost: 'Pegada', restore: 'Lossless simulado' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Excitador armónico de agudos — más claridad y detalle, sin aspereza.',
     ambience: 'Reverb suave — sensación de espacio, como en una sala.',
@@ -225,7 +225,7 @@ pt: {
   viaChannel: 'por canal', viaSmart: 'auto', viaManual: 'manual',
   bandTags: ['sub-graves','graves profundos','graves quentes','calor','médios graves','vozes','presença','detalhe','brilho','ar'],
   fxTitle: 'Efeitos',
-  fxNames: { clarity: 'Cristal', ambience: 'Espaço', surround: 'Amplo', dynBoost: 'Pegada', restore: 'Lossless simulado' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Excitação harmônica de agudos — mais clareza e detalhe, sem aspereza.',
     ambience: 'Reverb suave — sensação de espaço, como numa sala.',
@@ -264,7 +264,7 @@ fr: {
   viaChannel: 'par chaîne', viaSmart: 'auto', viaManual: 'manuel',
   bandTags: ['infra-basses','basses profondes','basses chaudes','chaleur','bas-médiums','voix','présence','détail','brillance','air'],
   fxTitle: 'Effets',
-  fxNames: { clarity: 'Cristal', ambience: 'Espace', surround: 'Large', dynBoost: 'Punch', restore: 'Lossless simulé' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Excitateur harmonique des aigus — plus de clarté et de détail, sans agressivité.',
     ambience: 'Légère réverb — sensation d’espace, comme dans une pièce.',
@@ -303,7 +303,7 @@ de: {
   viaChannel: 'pro Kanal', viaSmart: 'auto', viaManual: 'manuell',
   bandTags: ['Subbass','tiefer Bass','warmer Bass','Wärme','tiefe Mitten','Stimmen','Präsenz','Detail','Glanz','Luft'],
   fxTitle: 'Effekte',
-  fxNames: { clarity: 'Kristall', ambience: 'Raum', surround: 'Breit', dynBoost: 'Punch', restore: 'Simuliertes Lossless' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Harmonischer Höhen-Exciter — klarer, detailreicher, niemals harsch.',
     ambience: 'Sanfter Hall — Raumgefühl wie in einem Zimmer.',
@@ -342,7 +342,7 @@ it: {
   viaChannel: 'per canale', viaSmart: 'auto', viaManual: 'manuale',
   bandTags: ['sub-bassi','bassi profondi','bassi caldi','calore','medi bassi','voci','presenza','dettaglio','brillantezza','aria'],
   fxTitle: 'Effetti',
-  fxNames: { clarity: 'Cristallo', ambience: 'Spazio', surround: 'Ampio', dynBoost: 'Punch', restore: 'Lossless simulato' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Eccitatore armonico degli alti — più chiarezza e dettaglio, mai aspro.',
     ambience: 'Riverbero leggero — senso di spazio, come in una stanza.',
@@ -381,7 +381,7 @@ ru: {
   viaChannel: 'по каналу', viaSmart: 'авто', viaManual: 'вручную',
   bandTags: ['саб-бас','глубокий бас','тёплый бас','теплота','нижняя середина','вокал','присутствие','деталь','яркость','воздух'],
   fxTitle: 'Эффекты',
-  fxNames: { clarity: 'Кристалл', ambience: 'Пространство', surround: 'Широкий', dynBoost: 'Панч', restore: 'Эмуляция Lossless' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Гармонический возбудитель верхов — чище и детальнее, без резкости.',
     ambience: 'Лёгкая реверберация — ощущение пространства, как в комнате.',
@@ -420,7 +420,7 @@ ja: {
   viaChannel: 'チャンネル別', viaSmart: '自動', viaManual: '手動',
   bandTags: ['サブベース','重低音','暖かい低音','温かみ','低中域','ボーカル','プレゼンス','解像感','高域の輝き','空気感'],
   fxTitle: 'エフェクト',
-  fxNames: { clarity: 'クリスタル', ambience: '空間', surround: 'ワイド', dynBoost: 'パンチ', restore: '疑似ロスレス' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: '高域ハーモニックエキサイター — キツくならずにクリアで精細に。',
     ambience: '軽いリバーブ — 部屋で聴くような空間感。',
@@ -459,7 +459,7 @@ ko: {
   viaChannel: '채널별', viaSmart: '자동', viaManual: '수동',
   bandTags: ['서브베이스','깊은 저음','따뜻한 저음','온기','로우미드','보컬','프레즌스','디테일','밝기','공간감'],
   fxTitle: '이펙트',
-  fxNames: { clarity: '크리스탈', ambience: '공간', surround: '와이드', dynBoost: '펀치', restore: '로스리스 시뮬레이션' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: '고역 하모닉 익사이터 — 거칠지 않게 맑고 세밀하게.',
     ambience: '가벼운 리버브 — 방에서 듣는 듯한 공간감.',
@@ -498,7 +498,7 @@ zh: {
   viaChannel: '按频道', viaSmart: '自动', viaManual: '手动',
   bandTags: ['超低频','深沉低频','温暖低频','温暖感','中低频','人声','临场感','细节','明亮度','空气感'],
   fxTitle: '效果',
-  fxNames: { clarity: '清澈', ambience: '空间', surround: '宽广', dynBoost: '冲击', restore: '模拟无损' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: '高频谐波激励 — 更清晰细腻，绝不刺耳。',
     ambience: '轻混响 — 如在房间中聆听的空间感。',
@@ -537,7 +537,7 @@ id: {
   viaChannel: 'per kanal', viaSmart: 'otomatis', viaManual: 'manual',
   bandTags: ['sub-bass','bass dalam','bass hangat','kehangatan','mid bawah','vokal','kehadiran','detail','kecerahan','ruang udara'],
   fxTitle: 'Efek',
-  fxNames: { clarity: 'Jernih', ambience: 'Ruang', surround: 'Lebar', dynBoost: 'Punch', restore: 'Simulasi Lossless' },
+  fxNames: { clarity: 'Crystal', ambience: 'Space', surround: 'Wide', dynBoost: 'Punch', restore: 'Simulated Lossless' },
   fxDesc: {
     clarity: 'Eksiter harmonik frekuensi tinggi — lebih jernih dan detail, tidak menusuk.',
     ambience: 'Reverb ringan — kesan ruang seperti di dalam kamar.',
