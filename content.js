@@ -30,22 +30,29 @@ const timeData = new Uint8Array(64); // must equal fftSize; longer arrays leave 
 let lastHookError = ''; // diagnostic: why the video could not be hooked
 
 /* ---------- state ---------- */
+// Moi state di qua day truoc khi dung: diet sach state cu (vd gains 5 band cua v1)
+// neu khong applyAudio() se throw -> popup nhan rt:{} -> crash day chuyen.
+function sanitizeState(s) {
+  if (!s || typeof s !== 'object') return s;
+  if (!Array.isArray(s.gains) || s.gains.length !== 10) s.gains = [...TQ.DEFAULTS.gains];
+  s.effects = Object.assign({}, TQ.DEFAULTS.effects, s.effects || {});
+  if (!s.perChannel || typeof s.perChannel !== 'object') s.perChannel = {};
+  if (!s.customPresets || typeof s.customPresets !== 'object') s.customPresets = {};
+  if (typeof s.volume !== 'number' || isNaN(s.volume)) s.volume = 100;
+  return s;
+}
 function loadState() {
   const s = JSON.parse(JSON.stringify(TQ.DEFAULTS));
-  const mergeFx = fx => Object.assign({}, TQ.DEFAULTS.effects, fx);
   try {
     const raw = localStorage.getItem('tq.v2');
     if (raw) {
       const p = JSON.parse(raw);
       Object.assign(s, p);
-      if (p.effects) s.effects = mergeFx(p.effects);
       if (p.leveler === true && !p.effects) s.effects.dynBoost = 6; // legacy v2.0
       delete s.leveler;
     }
   } catch (e) {}
-  if (!Array.isArray(s.gains) || s.gains.length !== 10) s.gains = [...TQ.DEFAULTS.gains];
-  s.effects = mergeFx(s.effects);
-  return s;
+  return sanitizeState(s);
 }
 function persist() {
   try { chrome.storage.sync.set({ tqV2: state }); } catch (e) {}
@@ -292,10 +299,8 @@ chrome.runtime.onConnect.addListener(port => {
 /* ---------- messages ---------- */
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === 'tq-state') {
-    const fx = msg.state.effects;
     Object.assign(state, msg.state);
-    if (fx) state.effects = Object.assign({}, TQ.DEFAULTS.effects, fx);
-    if (!Array.isArray(state.gains) || state.gains.length !== 10) state.gains = [...TQ.DEFAULTS.gains];
+    sanitizeState(state);
     hookVideo(false);
     applyAudio();
     persist();
@@ -308,7 +313,9 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       sendResponse({ state, status, lastHookError, rt: { src: rt.src, channelName: rt.channelName, genre: rt.genre,
         channelKey: rt.channelKey, remembered: !!(rt.channelKey && state.perChannel[rt.channelKey]) } });
     } catch (e) {
-      sendResponse({ state, status: 'error', lastHookError: String((e && e.stack) || e), rt: {} });
+      // luon tra rt day du: popup khong bao gio crash vi rt.src undefined
+      sendResponse({ state, status: 'error', lastHookError: String((e && e.stack) || e),
+        rt: { src: 'manual', channelName: '', genre: '', channelKey: null, remembered: false } });
     }
   } else if (msg.type === 'tq-remember') {
     if (rt.channelKey) {
@@ -511,9 +518,8 @@ state = loadState();
 try {
   chrome.storage.sync.get({ tqV2: null }, r => {
     if (r.tqV2) {
-      const fx = r.tqV2.effects;
       Object.assign(state, r.tqV2);
-      if (fx) state.effects = Object.assign({}, TQ.DEFAULTS.effects, fx);
+      sanitizeState(state); // diet state cu truoc khi dung (gains 5 band, thieu effects...)
       hookVideo(false); applyAudio(); tqRenderMini();
     }
   });

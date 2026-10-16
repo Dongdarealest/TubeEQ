@@ -140,7 +140,7 @@ function render(full = true) {
         : status === 'needs-reload' ? t('statusReload') : t('statusNoVideo');
   const pname = TQ.PRESETS[state.preset] ? t('names')[state.preset]
     : (userPresetName() || t('custom'));
-  const via = (state.preset === 'custom' && !userPresetName()) ? '' : ' · ' + pname + ' (' + t('via' + cap(rt.src)) + ')';
+  const via = (state.preset === 'custom' && !userPresetName()) ? '' : ' · ' + pname + ' (' + t('via' + cap(rt.src || 'manual')) + ')';
   txt.textContent = s + (status === 'ready' && state.enabled ? via : '');
 
   // remember button
@@ -154,7 +154,11 @@ function render(full = true) {
     rb.textContent = t('remember') + '…';
   }
 }
-function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+function cap(s) { s = String(s || ''); return s.charAt(0).toUpperCase() + s.slice(1); }
+// diet gains la tu ban cu (5 band) - neu khong slider se nhan undefined
+function fixGains() {
+  if (!Array.isArray(state.gains) || state.gains.length !== 10) state.gains = [...DEFAULTS.gains];
+}
 
 /* ---------- comms ---------- */
 function isYouTubeTab(tab) {
@@ -193,6 +197,7 @@ async function pull() {
       const keepLang = state.lang;
       state = Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), r.state);
       state.lang = r.state.lang || keepLang;
+      fixGains();
       rt = r.rt || rt; status = r.status || 'ready';
       render(false);
       if (r.lastHookError) showDiag('Lỗi bắt video: ' + r.lastHookError);
@@ -313,6 +318,7 @@ async function startViz() {
       const fx = r.tqV2.effects;
       state = Object.assign(JSON.parse(JSON.stringify(DEFAULTS)), r.tqV2);
       state.effects = Object.assign({}, DEFAULTS.effects, fx || {}); // va cho state cu (v2.0)
+      fixGains();
     }
   } catch (e) {}
   render(true);
