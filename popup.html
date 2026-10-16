@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"><img src="icons/icon48.png" alt="">TubeEQ</div>
+    <div class="hbtns">
+      <button id="lang" class="chip" title="Language">VI</button>
+      <button id="power" class="power on" title="On/Off">⏻</button>
+    </div>
+  </header>
+
+  <div class="status"><span id="sdot" class="sdot ok"></span><span id="stext"></span></div>
+
+  <div class="prow">
+    <select id="preset"></select>
+    <button id="ab" class="chip" data-i18n="ab" title="A/B">A/B</button>
+    <button id="reset" class="chip" data-i18n="reset">Đặt lại</button>
+    <button id="savePreset" class="chip" title="💾">💾</button>
+  </div>
+  <div id="saveRow" class="irow hidden">
+    <input id="saveName" class="code">
+    <button id="saveApply" class="chip" data-i18n="saveBtn">Lưu</button>
+    <button id="saveDelete" class="chip danger hidden" data-i18n="deleteBtn">Xóa</button>
+  </div>
+
+  <div id="bands" class="bands"></div>
+
+  <div class="sec" data-i18n="fxTitle">Hiệu ứng</div>
+  <div id="fx" class="fxgrid"></div>
+
+  <div class="vrow">
+    <span class="lbl" data-i18n="volume">Âm lượng</span>
+    <input type="range" id="vol" min="0" max="200" step="5" value="100">
+    <span class="val" id="volval">100%</span>
+  </div>
+
+  <div class="trow">
+    <label class="switch"><input type="checkbox" id="smart"><span data-i18n="smart">EQ thông minh theo loại video</span></label>
+  </div>
+
+  <div class="crow">
+    <button id="remember" class="wide"></button>
+  </div>
+
+  <div class="srow">
+    <button id="share" class="chip" data-i18n="share">Chia sẻ</button>
+    <button id="importToggle" class="chip" data-i18n="importBtn">Nhập mã</button>
+    <span id="toast" class="toast hidden"></span>
+  </div>
+  <div id="importRow" class="irow hidden">
+    <input id="importCode" class="code">
+    <button id="importApply" class="chip" data-i18n="apply">Áp dụng</button>
+  </div>
+
+  <div class="vizrow">
+    <canvas id="viz" width="380" height="52"></canvas>
+    <span id="clip" class="clip" title="clip"></span>
+  </div>
+
+  <p id="hint" class="hint hidden"></p>
+  <footer><span id="ver">v2.0.0</span> · open source · no data collected</footer>
+</div>
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
