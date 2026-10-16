@@ -198,15 +198,17 @@ async function activeTab() {
   return tab;
 }
 let pushTimer = null;
-async function push() {
+async function pushSend() {
+  try { await chrome.storage.sync.set({ tqV2: state }); } catch (e) {}
+  try {
+    const tab = await activeTab();
+    if (isYouTubeTab(tab)) await chrome.tabs.sendMessage(tab.id, { type: 'tq-state', state });
+  } catch (e) {}
+}
+async function push(now) {
   clearTimeout(pushTimer);
-  pushTimer = setTimeout(async () => {
-    try { await chrome.storage.sync.set({ tqV2: state }); } catch (e) {}
-    try {
-      const tab = await activeTab();
-      if (isYouTubeTab(tab)) await chrome.tabs.sendMessage(tab.id, { type: 'tq-state', state });
-    } catch (e) {}
-  }, 60);
+  if (now) { await pushSend(); return; }
+  pushTimer = setTimeout(pushSend, 60);
 }
 function showDiag(txt) {
   const h = $('#hint');
@@ -304,14 +306,22 @@ $('#share').addEventListener('click', async () => {
   setTimeout(() => toast.classList.add('hidden'), 2500);
 });
 $('#importToggle').addEventListener('click', () => $('#importRow').classList.toggle('hidden'));
-$('#importApply').addEventListener('click', () => {
+function doImport() {
   const r = TQ.decodePreset($('#importCode').value);
-  if (r) {
-    state.gains = r.gains;
-    if (r.fx) state.effects = Object.assign({}, TQ.DEFAULTS.effects, r.fx);
-    state.preset = 'custom'; render(false); push(); $('#importRow').classList.add('hidden');
+  if (!r) {
+    const inp = $('#importCode');
+    inp.style.borderColor = '#ff3b5c';
+    setTimeout(() => { inp.style.borderColor = ''; }, 1200);
+    return;
   }
-});
+  state.gains = r.gains;
+  if (r.fx) state.effects = Object.assign({}, TQ.DEFAULTS.effects, r.fx);
+  state.preset = 'custom';
+  state.smart = false; // nhap tay thang automation: tat Smart EQ de preset nhap khong bi de lai
+  render(false); push(true); $('#importRow').classList.add('hidden');
+}
+$('#importApply').addEventListener('click', doImport);
+$('#importCode').addEventListener('keydown', e => { if (e.key === 'Enter') doImport(); });
 
 /* ---------- save / delete user presets ---------- */
 $('#savePreset').addEventListener('click', () => {
