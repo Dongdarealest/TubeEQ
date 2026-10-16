@@ -2,47 +2,53 @@
   <img src="assets/banner.png" alt="TubeEQ — Hear YouTube right." width="100%">
 </p>
 
-# TubeEQ — YouTube Equalizer
-A reliable 10-band equalizer for YouTube. Free forever, open source, no ads, no paywall, no data collected.
+<p align="center">
+  <img src="https://img.shields.io/badge/version-v1.0.1-ff3b5c?style=flat-square" alt="version">
+  <img src="https://img.shields.io/badge/license-MIT-35d07f?style=flat-square" alt="license">
+  <img src="https://img.shields.io/badge/Chrome-extension-2a2e42?style=flat-square" alt="chrome">
+  <img src="https://img.shields.io/badge/website-live-4a7dff?style=flat-square" alt="website">
+</p>
 
-**TubeEQ — EQ 10 band cho YouTube.** Miễn phí vĩnh viễn, mã nguồn mở, không quảng cáo, không thu thập dữ liệu.
+<h3 align="center">Hear YouTube right.</h3>
 
-## Features / Tính năng
+<p align="center">
+  <b>TubeEQ</b> is a free, open-source 10-band equalizer for YouTube.<br>
+  No tracking. No ads. No paywall. Just better sound.<br>
+  <a href="https://dongdarealest.github.io/TubeEQ/">🌐 Website</a> ·
+  <a href="https://github.com/Dongdarealest/TubeEQ/releases/tag/v1.0.1">⬇️ Download v1.0.1</a> ·
+  <a href="https://github.com/Dongdarealest/TubeEQ/issues">🐞 Report a bug</a>
+</p>
 
-- **10-band EQ** (31 Hz – 16 kHz) with genre presets: Rock, Pop, Jazz, Classical, Electronic, Lofi + community presets (V-Pop, EDM…). Hover any band for a plain-language explanation.
-- **In-player floating button**: a red TubeEQ button floats on the video player (top-right) — one click opens a mini panel to switch presets or toggle power without leaving the video. Full controls stay in the toolbar popup.
-- **5 signature sound effects, TubeEQ's own recipe**: **Trong** (harmonic exciter — clearer highs), **Vang** (gentle room reverb), **Rộng** (stereo widener), **Căng** (smart compression — loud and punchy), **Giả lập Lossless** (transient restorer — simulates the snap that lossy codecs smear)
-- **Smart EQ**: auto-suggests a preset based on video type (music, podcast, gaming…)
-- **Per-channel memory**: remembers your preset for each YouTube channel
-- **Volume boost** up to 200% + **volume leveling** across videos (no more loudness jumps)
-- **Clip indicator** + **A/B compare** button
-- **Preset sharing**: copy a short code, friends paste it to get your exact EQ
-- **Nonstop**: auto-clicks "Continue watching?" so YouTube never pauses your music for being idle
-- **Visualizer**: live proof the EQ is actually processing your audio
-- 12-language interface (EN default): English, Tiếng Việt, Español, Português, Français, Deutsch, Italiano, Русский, 日本語, 한국어, 中文, Bahasa Indonesia
-- Minimal permissions: only `youtube.com`. No `tabCapture`, no all-sites access.
+---
 
-## Install / Cài đặt
+### ✨ Features
 
-1. Open `chrome://extensions`, enable **Developer mode**
-2. Click **Load unpacked**, select this folder
-3. Open a YouTube video, click the TubeEQ icon
+- 🎚️ **10-band EQ** (31 Hz – 16 kHz) with plain-language labels
+- 🎛️ **5 studio effects** — clarity, ambience, surround, punch, lossless restore
+- 🔴 **Floating button** on the player — quick presets without leaving the video
+- 🧠 **Per-channel memory** — your preset follows each channel
+- 🔗 **Shareable presets** — every setting is a short code
+- 💾 **Backup & restore** — all presets in one JSON file
+- 🔊 **Volume boost to 200%** with limiter + clip indicator
+- 🌍 **12 languages**
 
-## Share a preset / Chia sẻ preset
+### ⬇️ Install (2 minutes)
 
-Click **Share** to copy your preset code (looks like `TQ1.xxxxx`), send it to a friend — they click **Nhập mã / Import**, paste, Apply. Done.
+1. Download `tubeeq-v1.0.1.zip` from [Releases](https://github.com/Dongdarealest/TubeEQ/releases/tag/v1.0.1)
+2. Unzip it somewhere permanent
+3. `chrome://extensions` → Developer mode → **Load unpacked** → pick the folder → `F5` on YouTube
 
-## Privacy / Quyền riêng tư
+Updating? Unzip **over the same folder** and hit reload ↻ — never a new folder.
 
-TubeEQ does not collect, transmit, or store any personal data. Settings stay in your browser (`chrome.storage`).
-TubeEQ không thu thập hay gửi đi bất kỳ dữ liệu nào. Cài đặt chỉ lưu trong trình duyệt của bạn.
+### 🤝 Contributing
 
-## Notes / Lưu ý
+- Got a great preset? Add it to [`presets.json`](https://github.com/Dongdarealest/TubeEQ/blob/gh-pages/presets.json) via pull request
+- Found a bug? [Open an issue](https://github.com/Dongdarealest/TubeEQ/issues)
 
-- Built on the Web Audio API: `MediaElementSource → Gain → 10× BiquadFilter → Compressor → Analyser → destination`
-- Each `<video>` element allows exactly one audio source: after **updating/reloading the extension**, **reload open YouTube tabs**
-- YouTube is a SPA (no reload between videos): the extension re-attaches on `yt-navigate-finish` + URL polling
+### 🔒 Privacy
 
-## License
+Only asks for `youtube.com`. Settings stay in your browser. Nothing is sent anywhere. [Full policy](https://dongdarealest.github.io/TubeEQ/privacy.html).
 
-MIT — see [LICENSE](LICENSE).
+### 📄 License
+
+MIT — do whatever you want with it.
