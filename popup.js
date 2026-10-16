@@ -94,11 +94,11 @@ function applyUserPreset(name) {
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   $('#nonstopLabel').title = t('nonstopDesc');
+  $('#lang').value = state.lang;
   $('#importCode').placeholder = t('importPh');
   $('#savePreset').title = t('saveTip');
   $('#saveName').placeholder = t('saveNamePh');
   $('#hint').textContent = t('hint');
-  $('#lang').textContent = state.lang.toUpperCase();
   TQ.BANDS.forEach((b, i) => {
     $('#bl' + i).textContent = b.label;
   });
@@ -233,8 +233,14 @@ $('#vol').addEventListener('input', e => {
 });
 $('#smart').addEventListener('change', e => { state.smart = e.target.checked; push(); });
 $('#nonstop').addEventListener('change', e => { state.nonstop = e.target.checked; push(); });
-$('#lang').addEventListener('click', () => {
-  state.lang = state.lang === 'vi' ? 'en' : 'vi';
+/* ---------- language selector ---------- */
+TQ.LANGS.forEach(([code, name]) => {
+  const o = document.createElement('option');
+  o.value = code; o.textContent = name;
+  $('#lang').appendChild(o);
+});
+$('#lang').addEventListener('change', e => {
+  state.lang = e.target.value;
   render(true); push();
 });
 $('#remember').addEventListener('click', async () => {
