@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="TubeEQ — Hear YouTube right." width="100%">
+  <img src="assets/banner.png" alt="TubeEQ - Hear YouTube right." width="100%">
 </p>
 
 <p align="center">
@@ -24,11 +24,11 @@
 ### ✨ Features
 
 - 🎚️ **10-band EQ** (31 Hz – 16 kHz) with plain-language labels
-- 🎛️ **5 studio effects** — clarity, ambience, surround, punch, lossless restore
-- 🔴 **Floating button** on the player — quick presets without leaving the video
-- 🧠 **Per-channel memory** — your preset follows each channel
-- 🔗 **Shareable presets** — every setting is a short code
-- 💾 **Backup & restore** — all presets in one JSON file
+- 🎛️ **5 studio effects** - clarity, ambience, surround, punch, lossless restore
+- 🔴 **Floating button** on the player - quick presets without leaving the video
+- 🧠 **Per-channel memory** - your preset follows each channel
+- 🔗 **Shareable presets** - every setting is a short code
+- 💾 **Backup & restore** - all presets in one JSON file
 - 🔊 **Volume boost to 200%** with limiter + clip indicator
 - 🌍 **12 languages**
 
@@ -38,7 +38,7 @@
 2. Unzip it somewhere permanent
 3. `chrome://extensions` → Developer mode → **Load unpacked** → pick the folder → `F5` on YouTube
 
-Updating? Unzip **over the same folder** and hit reload ↻ — never a new folder.
+Updating? Unzip **over the same folder** and hit reload ↻ - never a new folder.
 
 ### 🤝 Contributing
 
@@ -51,4 +51,4 @@ Only asks for `youtube.com`. Settings stay in your browser. Nothing is sent anyw
 
 ### 📄 License
 
-MIT — do whatever you want with it.
+MIT - do whatever you want with it.
