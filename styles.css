@@ -5,7 +5,13 @@ body {
   color: #e8eaf0;
   font: 13px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif;
   user-select: none;
+  overflow-x: hidden;
+  scrollbar-width: thin; scrollbar-color: #343845 transparent;
 }
+body::-webkit-scrollbar { width: 8px; }
+body::-webkit-scrollbar-track { background: transparent; }
+body::-webkit-scrollbar-thumb { background: #343845; border-radius: 4px; }
+body::-webkit-scrollbar-thumb:hover { background: #ff3b5c; }
 .app { padding: 6px 12px; }
 header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; letter-spacing: .5px; }
