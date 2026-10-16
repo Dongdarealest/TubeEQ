@@ -72,18 +72,27 @@ TQ.DEFAULTS = {
   customPresets: {},    // name -> { g:[...], fx:{...} }  (user-saved, shown under "My presets")
 };
 
-/* preset share code: TQ1.<base64 of 10 bytes> */
-TQ.encodePreset = function (gains) {
+/* preset share code v2: TQ2.<base64 of 15 bytes> = 10 gains + 5 effects (0..10) */
+TQ.FX_ORDER = ['clarity', 'ambience', 'surround', 'dynBoost', 'restore'];
+TQ.encodePreset = function (gains, fx) {
   const bytes = gains.map(g => Math.max(0, Math.min(48, Math.round((g + 12) * 2))));
-  return 'TQ1.' + btoa(String.fromCharCode.apply(null, bytes));
+  const fxb = TQ.FX_ORDER.map(k => Math.max(0, Math.min(10, Math.round(((fx || {})[k]) || 0))));
+  return 'TQ2.' + btoa(String.fromCharCode.apply(null, bytes.concat(fxb)));
 };
 TQ.decodePreset = function (code) {
-  const m = /^TQ1\.([A-Za-z0-9+/=]+)$/.exec((code || '').trim());
+  const m = /^TQ([12])\.([A-Za-z0-9+/=]+)$/.exec((code || '').trim());
   if (!m) return null;
   try {
-    const s = atob(m[1]);
+    const s = atob(m[2]);
+    if (m[1] === '2') {
+      if (s.length !== 15) return null;
+      const gains = Array.from(s.slice(0, 10)).map(ch => (ch.charCodeAt(0) / 2) - 12);
+      const fx = {};
+      TQ.FX_ORDER.forEach((k, i) => { fx[k] = s.charCodeAt(10 + i); });
+      return { gains, fx };
+    }
     if (s.length !== 10) return null;
-    return Array.from(s).map(ch => (ch.charCodeAt(0) / 2) - 12);
+    return { gains: Array.from(s).map(ch => (ch.charCodeAt(0) / 2) - 12), fx: null };
   } catch (e) { return null; }
 };
 

@@ -296,7 +296,7 @@ $('#remember').addEventListener('click', async () => {
   } catch (e) {}
 });
 $('#share').addEventListener('click', async () => {
-  const code = TQ.encodePreset(state.gains);
+  const code = TQ.encodePreset(state.gains, state.effects);
   try { await navigator.clipboard.writeText(code); } catch (e) {}
   const toast = $('#toast');
   toast.textContent = t('copied') + ' ' + code;
@@ -305,8 +305,12 @@ $('#share').addEventListener('click', async () => {
 });
 $('#importToggle').addEventListener('click', () => $('#importRow').classList.toggle('hidden'));
 $('#importApply').addEventListener('click', () => {
-  const g = TQ.decodePreset($('#importCode').value);
-  if (g) { state.gains = g; state.preset = 'custom'; render(false); push(); $('#importRow').classList.add('hidden'); }
+  const r = TQ.decodePreset($('#importCode').value);
+  if (r) {
+    state.gains = r.gains;
+    if (r.fx) state.effects = Object.assign({}, TQ.DEFAULTS.effects, r.fx);
+    state.preset = 'custom'; render(false); push(); $('#importRow').classList.add('hidden');
+  }
 });
 
 /* ---------- save / delete user presets ---------- */
